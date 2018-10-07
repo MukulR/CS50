@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+
+<style>
+table, th, td {
+    border-collapse: collapse;
+    padding: 10px;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color:#d2e0f7;}
+</style>
+
+<html>
+<body>
+    <table align="center" width="100%">
+        <tr>
+            <th>Symbol</th>
+            <th>Share Transactions</th>
+            <th>Monetary Transactions</th>
+            <th>Date</th>
+        </tr>
+        {% for transaction in transactionList %}
+        <tr>
+          <td>{{ transaction.Symbol }}</td>
+          <td>{{ transaction.Shares }}</td>
+          <td>{{"${:,.2f}".format(transaction.Price)}}</td>
+          <td>{{ transaction.Date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% if currentUser == 1 %}
+      <b>SUPERUSER ACCOUNT</b>
+    {% endif %}
+    <footer class="small text-center text-muted">
+          Developed by curiousmu
+    </footer>
+</body>
+</html>
+{% endblock %}
