@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block main %}
+
+<html>
+<body>
+    <b>Welcome, {{ currentUser }}!</b>
+    <p>Today is: <span id="datetime"></span></p>
+    <br>
+    <img src="http://bestanimations.com/Books/page-turning-book-animation-17.gif">
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer class="small text-center text-muted">
+          Developed by curiousmu
+    </footer>
+</body>
+</html>
+{% endblock %}

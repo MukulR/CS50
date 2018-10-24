@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<style>
+table, th, td {
+    border-collapse: collapse;
+    padding: 10px;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color:#d2e0f7;}
+</style>
+
+<html>
+<body>
+    <table align="center" width="100%">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Date Started</th>
+      </tr>
+      {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.pages }}</td>
+          <td>{{ book.date }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    {% if currentUser == 1 %}
+      <b>SUPERUSER ACCOUNT</b>
+    {% endif %}
+    <footer class="small text-center text-muted">
+          Developed by curiousmu
+    </footer>
+</body>
+</html>
+{% endblock %}
